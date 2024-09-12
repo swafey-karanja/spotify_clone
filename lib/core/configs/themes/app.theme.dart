@@ -1,4 +1,4 @@
-import 'package:bloc_project/core/configs/themes/app.colours.dart';
+import 'package:spotify_clone/core/configs/themes/app.colours.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

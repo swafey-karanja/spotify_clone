@@ -1,4 +1,4 @@
-# bloc_project
+# spotify_clone
 
 A new Flutter project.
 

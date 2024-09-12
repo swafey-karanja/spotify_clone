@@ -1,5 +1,5 @@
-import 'package:bloc_project/core/configs/themes/app.theme.dart';
-import 'package:bloc_project/presentation/splash/pages/splash.page.dart';
+import 'package:spotify_clone/core/configs/themes/app.theme.dart';
+import 'package:spotify_clone/presentation/splash/pages/splash.page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

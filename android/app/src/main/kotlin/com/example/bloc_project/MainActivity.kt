@@ -1,4 +1,4 @@
-package com.example.bloc_project
+package com.example.spotify_clone
 
 import io.flutter.embedding.android.FlutterActivity
 

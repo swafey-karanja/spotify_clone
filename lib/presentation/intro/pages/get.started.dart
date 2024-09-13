@@ -45,12 +45,12 @@ class GetStartedPage extends StatelessWidget {
                   'Enjoy Listening To Music You Love.',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                    fontSize: 26,
                     color: Colors.white,
                   ),
                 ),
           
-                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
           
                 const Text(
                   'Discover new music with our app! Explore your favorite genres, create personalized playlists, and enjoy seamless streaming. Whether you are into rock, pop, classical, or jazz, our app offers endless options to match your mood. Dive into an immersive music experience anytime, anywhere. Start listening today!.',
@@ -75,6 +75,8 @@ class GetStartedPage extends StatelessWidget {
                   }, 
                   title: "Let's Go"
                 ),
+
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04),
           
               ],
             ),

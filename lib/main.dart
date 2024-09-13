@@ -1,8 +1,20 @@
-import 'package:spotify_clone/core/configs/themes/app.theme.dart';
-import 'package:spotify_clone/presentation/splash/pages/splash.page.dart';
+import 'package:flutter/foundation.dart'; // For kIsWeb
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart'; // For HydratedBloc
+import 'package:path_provider/path_provider.dart'; // For getApplicationDocumentsDirectory
+// import 'package:path_provider_platform_interface/path_provider_platform_interface.dart'; // Optional to handle platforms
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/configs/themes/app.theme.dart';
+import 'package:spotify_clone/presentation/choose_mode/bloc/theme.cubit.dart';
+import 'package:spotify_clone/presentation/splash/pages/splash.page.dart'; // For MyApp
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getApplicationDocumentsDirectory(),
+  );
   runApp(const MyApp());
 }
 
@@ -12,10 +24,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: AppTheme.lightTheme,
-      home: const SplashPage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ThemeCubit()),
+      ],
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, mode) => MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: mode,
+          home: const SplashPage(),
+        ),
+      ),
     );
   }
 }
